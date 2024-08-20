@@ -165,7 +165,7 @@ const insertAdminDetails = () => {
         const hallTicketNumber = `DTS${new Date().getFullYear()}${Math.floor(1000 + Math.random() * 9000)}`;
 
         
-        const query = `INSERT INTO user (first_name, last_name, email, phone_number, password, confirm_password, graduation, branch_name, mode, exam_center,college_name, gender, address, role, hall_ticket_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)`;
+        const query = `INSERT INTO user (first_name, last_name, email, phone_number, password, graduation, branch_name, mode, exam_center,college_name, gender, address, role, hall_ticket_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)`;
         db.query(query, [
           adminDetails.firstName,
           adminDetails.lastName,
@@ -257,7 +257,7 @@ app.post('/register', async (req, res) => {
     };
 
 
-    const query = `INSERT INTO user (first_name, last_name, email, phone_number, password, graduation, branch_name, college_name, mode,address,exam_center,gender,address,role, hall_ticket_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO user (first_name, last_name, email, phone_number, password, graduation, branch_name, college_name, mode,exam_center,gender,address,role, hall_ticket_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     await new Promise((resolve, reject) => {
       db.query(query, Object.values(newUser), (err) => {
